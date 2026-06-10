@@ -5,9 +5,10 @@ import LibraryUtil.DBConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class BookDAO {
-
+    //:-----------------------------------------Add Book:-----------------------------------------------:
     public void addBook(Book book){
         try{
             Connection con = DBConnection.getConnection();
@@ -27,4 +28,35 @@ public class BookDAO {
             e.printStackTrace();
          }
     }
+
+
+    //:-------------------------------------------:View Book:---------------------------------------------:
+
+    public void viewBook(){
+
+        try{
+            Connection con = DBConnection.getConnection();
+
+            String sql = "SELECT *FROM book";
+
+            PreparedStatement ps = con.prepareStatement(sql);
+
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+                System.out.println(
+                        rs.getInt("id")+ " | " +
+                                rs.getString("Name")+ " "+
+                                rs.getString("Author")+ " "+
+                                rs.getInt("quantity")
+
+                );
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+
 }
