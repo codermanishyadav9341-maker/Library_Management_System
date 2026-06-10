@@ -31,7 +31,7 @@ public class StudentDAO {
 
     //:------------------------------------View Student:--------------------------------------------------;
 
-    public void view(){
+    public void viewStudent(){
         try{
             Connection con = DBConnection.getConnection();
 

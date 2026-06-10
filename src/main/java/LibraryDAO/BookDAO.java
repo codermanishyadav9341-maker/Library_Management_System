@@ -37,7 +37,7 @@ public class BookDAO {
         try{
             Connection con = DBConnection.getConnection();
 
-            String sql = "SELECT *FROM book";
+            String sql = "SELECT * FROM book";
 
             PreparedStatement ps = con.prepareStatement(sql);
 
@@ -45,11 +45,10 @@ public class BookDAO {
 
             while(rs.next()){
                 System.out.println(
-                        rs.getInt("id")+ " | " +
-                                rs.getString("Name")+ " "+
-                                rs.getString("Author")+ " "+
+                        rs.getInt("id") + " | " +
+                                rs.getString("name") + " " +
+                                rs.getString("author") + " " +
                                 rs.getInt("quantity")
-
                 );
             }
         }
