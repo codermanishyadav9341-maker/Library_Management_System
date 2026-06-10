@@ -1,0 +1,33 @@
+package LibraryUtil;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class DBConnection {
+    private static final String URL = "jdbc:mysql://localhost:3306/Library_db";
+    private static final String username = "root";
+    private static final String password = "982105";
+
+
+    public static Connection getConnection(){
+        Connection con = null;
+
+        try{
+            con = DriverManager.getConnection(
+                    URL,
+                    username,
+                    password
+
+
+            );
+            System.out.println("DataBase Connected Successfully");
+
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+
+        return con;
+
+    }
+}
